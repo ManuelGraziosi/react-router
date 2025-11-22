@@ -51,16 +51,6 @@ function DettagliProdotto() {
 
               {/* Descrizione */}
               <p className="text-muted mb-4">{dettagliProdotto.description}</p>
-
-              {/* Azioni */}
-              {/* <div className="d-flex gap-3">
-                <button className="btn btn-primary btn-lg">
-                  Aggiungi al carrello
-                </button>
-                <button className="btn btn-outline-secondary btn-lg">
-                  Aggiungi ai preferiti
-                </button>
-              </div> */}
             </div>
           </div>
         </div>
