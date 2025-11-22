@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 function Prodotti() {
   const [recivedProducts, setRecivedProducts] = useState(null);
@@ -10,6 +11,8 @@ function Prodotti() {
       setRecivedProducts(resp.data);
     });
   }, []);
+
+  const navigate = useNavigate();
   return (
     <>
       <div className="container">
@@ -20,7 +23,10 @@ function Prodotti() {
             {recivedProducts &&
               recivedProducts.map((curProduct) => (
                 <div key={curProduct.id} className="col g-3">
-                  <div className="card h-100">
+                  <Link
+                    to={`/prodotti/${curProduct.id}`}
+                    className="card h-100"
+                  >
                     <div className="card-header">
                       <h5>{curProduct.title}</h5>
                     </div>
@@ -34,7 +40,7 @@ function Prodotti() {
                     <div className="card-footer">
                       <p>Prezzo: {curProduct.price}€</p>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               ))}
           </div>
