@@ -1,6 +1,20 @@
 import { Link, NavLink } from "react-router-dom";
 
 function Header() {
+  const navLinks = [
+    {
+      title: "Homepage",
+      path: "/",
+    },
+    {
+      title: "Chi siamo",
+      path: "/chi-siamo",
+    },
+    {
+      title: "Prodotti",
+      path: "/prodotti",
+    },
+  ];
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -21,21 +35,17 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to={"/"}>
-                  Homepage
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to={"/chi-siamo"}>
-                  Chi siamo
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to={"/prodotti"}>
-                  Prodotti
-                </NavLink>
-              </li>
+              {navLinks.map((curLink, index) => (
+                <li key={index} className="nav-item">
+                  <NavLink
+                    className="nav-link"
+                    aria-current="page"
+                    to={curLink.path}
+                  >
+                    {curLink.title}
+                  </NavLink>
+                </li>
+              ))}
               <li className="nav-item">
                 <NavLink className="nav-link disabled" aria-disabled="true">
                   Coming soon...
